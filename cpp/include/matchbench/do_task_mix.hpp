@@ -2,9 +2,7 @@
 #ifndef MATCHBENCH_DO_TASK_MIX_HPP_INCLUDE
 #define MATCHBENCH_DO_TASK_MIX_HPP_INCLUDE
 
-#include <iostream>
-
-#include "config/thread_local_config.hpp"
+#include "../config/thread_local_config.hpp"
 
 #include "do_lookup_task.hpp"
 #include "do_regulate_task.hpp"

@@ -2,8 +2,6 @@
 #ifndef MATCHBENCH_DO_REGULATE_TASK_HPP_INCLUDE
 #define MATCHBENCH_DO_REGULATE_TASK_HPP_INCLUDE
 
-#include <iostream>
-
 #include "sample_query_tag.hpp"
 
 namespace matchbench {

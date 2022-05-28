@@ -2,8 +2,6 @@
 #ifndef MATCHBENCH_DO_LOOKUP_TASK_HPP_INCLUDE
 #define MATCHBENCH_DO_LOOKUP_TASK_HPP_INCLUDE
 
-#include <iostream>
-
 #include "sample_query_tag.hpp"
 
 // prevent lookup operations from being optimized out
