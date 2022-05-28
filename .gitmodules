@@ -4,3 +4,6 @@
 [submodule "cpp/third-party/picobench"]
 	path = cpp/third-party/picobench
 	url = https://github.com/iboB/picobench
+[submodule "cpp/third-party/FlameGraph"]
+	path = cpp/third-party/FlameGraph
+	url = https://github.com/brendangregg/FlameGraph.git
