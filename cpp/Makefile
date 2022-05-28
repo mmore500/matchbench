@@ -41,6 +41,11 @@ benchmark_fiddle.o: source/benchmark_fiddle.cpp include/
 	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_fiddle/include -c source/benchmark_fiddle.cpp -o benchmark_fiddle.o
 
 # see https://stackoverflow.com/a/57760267 RE: -lstdc++fs
+# benchmark_control.o benchmark_baseline.o benchmark_fiddle.o order
+# matters to get a fair benchmark of baseline vs fiddle, presumably
+# due to order-dependent effects on which code sections get discarded
+# when linking
+# see https://stackoverflow.com/a/44346057/17332200
 $(PROJECT): source/native.cpp include/ benchmark_baseline.o benchmark_control.o benchmark_fiddle.o
 	$(CXX) benchmark_control.o benchmark_baseline.o benchmark_fiddle.o $(CFLAGS_nat) -Ithird-party/Empirical_control/include source/native.cpp -o $(PROJECT)
 	@echo To build the web version use: make web
