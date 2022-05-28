@@ -32,17 +32,17 @@ debug-web: $(PROJECT).js
 web-debug: debug-web
 
 benchmark_baseline.o: source/benchmark_baseline.cpp include/
-	$(CXX) $(CFLAGS_nat) -static -DCONTROL -Ithird-party/Empirical_baseline/include -c source/benchmark_baseline.cpp -DWHICH_EMPIRICAL=Empirical_baseline -o benchmark_baseline.o
+	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_baseline/include -c source/benchmark_baseline.cpp -DWHICH_EMPIRICAL=Empirical_baseline -o benchmark_baseline.o
 
 benchmark_control.o: source/benchmark_control.cpp include/
-	$(CXX) $(CFLAGS_nat) -static -DCONTROL -Ithird-party/Empirical_control/include -c source/benchmark_control.cpp -DWHICH_EMPIRICAL=Empirical_control -o benchmark_control.o
+	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_control/include -c source/benchmark_control.cpp -DWHICH_EMPIRICAL=Empirical_control -o benchmark_control.o
 
 benchmark_fiddle.o: source/benchmark_fiddle.cpp include/
-	$(CXX) $(CFLAGS_nat) -static -DFIDDLE -Ithird-party/Empirical_fiddle/include -c source/benchmark_fiddle.cpp -o benchmark_fiddle.o
+	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_fiddle/include -c source/benchmark_fiddle.cpp -o benchmark_fiddle.o
 
 # see https://stackoverflow.com/a/57760267 RE: -lstdc++fs
 $(PROJECT): source/native.cpp include/ benchmark_baseline.o benchmark_control.o benchmark_fiddle.o
-	$(CXX) benchmark_baseline.o benchmark_control.o benchmark_fiddle.o $(CFLAGS_nat) -Ithird-party/Empirical_control/include source/native.cpp -o $(PROJECT)
+	$(CXX) benchmark_control.o benchmark_baseline.o benchmark_fiddle.o $(CFLAGS_nat) -Ithird-party/Empirical_control/include source/native.cpp -o $(PROJECT)
 	@echo To build the web version use: make web
 
 $(PROJECT).js: source/web.cpp include/
