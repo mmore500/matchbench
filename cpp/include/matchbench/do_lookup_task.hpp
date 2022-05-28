@@ -6,12 +6,13 @@
 
 #include "sample_query_tag.hpp"
 
-volatile size_t val;
+// prevent lookup operations from being optimized out
+inline volatile size_t val;
 
 namespace matchbench {
 
 template<typename Depository>
-void do_lookup_task(Depository& depository) {
+static void do_lookup_task(Depository& depository) {
 
   const auto query = matchbench::sample_query_tag();
 

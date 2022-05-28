@@ -10,7 +10,7 @@
 
 namespace matchbench {
 
-void try_read_config_file(matchbench::Config & config, emp::ArgManager & am) {
+inline void try_read_config_file(matchbench::Config & config, emp::ArgManager & am) {
   if (std::filesystem::exists("matchbench.cfg")) {
     std::cout << "Configuration read from matchbench.cfg" << '\n';
     config.Read("matchbench.cfg");

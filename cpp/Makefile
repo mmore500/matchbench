@@ -31,9 +31,18 @@ debug-web: $(PROJECT).js
 
 web-debug: debug-web
 
+baseline.o: source/bm_task_mix_baseline.cpp include/
+	$(CXX) $(CFLAGS_nat) -static -DCONTROL -Ithird-party/Empirical_baseline/include -c source/bm_task_mix_baseline.cpp -DWHICH_EMPIRICAL=Empirical_baseline -o baseline.o
+
+control.o: source/bm_task_mix_control.cpp include/
+	$(CXX) $(CFLAGS_nat) -static -DCONTROL -Ithird-party/Empirical_control/include -c source/bm_task_mix_control.cpp -DWHICH_EMPIRICAL=Empirical_control -o control.o
+
+fiddle.o: source/bm_task_mix_fiddle.cpp include/
+	$(CXX) $(CFLAGS_nat) -static -DFIDDLE -Ithird-party/Empirical_fiddle/include -c source/bm_task_mix_fiddle.cpp -o fiddle.o
+
 # see https://stackoverflow.com/a/57760267 RE: -lstdc++fs
-$(PROJECT): source/native.cpp include/
-	$(CXX) $(CFLAGS_nat) source/native.cpp -o $(PROJECT) -lstdc++fs -lmetis -lz -lcurl -lsfml-graphics -ldw -llzma
+$(PROJECT): source/native.cpp include/ baseline.o control.o fiddle.o
+	$(CXX) baseline.o control.o fiddle.o $(CFLAGS_nat) -Ithird-party/Empirical_control/include source/native.cpp -o $(PROJECT)
 	@echo To build the web version use: make web
 
 $(PROJECT).js: source/web.cpp include/
@@ -46,7 +55,7 @@ serve:
 	python3 -m http.server
 
 clean:
-	rm -f $(PROJECT) web/$(PROJECT).js web/*.js.map web/*.js.map *~ source/*.o web/*.wasm web/*.wast
+	rm -f $(PROJECT) web/$(PROJECT).js web/*.js.map web/*.js.map *~ source/*.o web/*.wasm web/*.wast *.o
 
 test: debug debug-web
 	./matchbench | grep -q 'Hello, world!' && echo 'matched!' || exit 1

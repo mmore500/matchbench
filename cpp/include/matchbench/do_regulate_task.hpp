@@ -9,7 +9,7 @@
 namespace matchbench {
 
 template<typename Depository>
-void do_regulate_task(Depository& depository) {
+static void do_regulate_task(Depository& depository) {
 
   const auto query = matchbench::sample_query_tag();
 

@@ -2,9 +2,8 @@
 #ifndef MATCHBENCH_SAMPLE_QUERY_TAG_HPP_INCLUDE
 #define MATCHBENCH_SAMPLE_QUERY_TAG_HPP_INCLUDE
 
-#include "../../third-party/Empirical/include/emp/bits/BitSet.hpp"
-
 #include "config/thread_local_config.hpp"
+#include "typedef/BitSet.hpp"
 
 namespace matchbench {
 
@@ -25,7 +24,7 @@ uint64_t hash(uint64_t key) {
 
 } // namespace impl
 
-auto sample_query_tag() {
+static auto sample_query_tag() {
 
   const auto& cfg = matchbench::thread_local_config;
 
@@ -35,10 +34,11 @@ auto sample_query_tag() {
   const uint64_t cur_tag_idx = rand.GetUInt64(cfg.QUERY_POOL_SIZE());
   const uint64_t cur_tag_bits = impl::hash(cur_tag_idx);
 
-  return emp::BitSet<64>(cur_tag_bits);
+
+  return /*matchbench::*/BitSet(cur_tag_bits);
 
 }
 
-}
+} // namespace matchbench
 
 #endif // #ifndef MATCHBENCH_SAMPLE_QUERY_TAG_HPP_INCLUDE

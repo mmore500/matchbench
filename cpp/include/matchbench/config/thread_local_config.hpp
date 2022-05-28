@@ -6,7 +6,7 @@
 
 namespace matchbench {
 
-  thread_local matchbench::Config thread_local_config{};
+  inline thread_local matchbench::Config thread_local_config{};
 
 } // namespace matchbench
 

@@ -1,9 +1,18 @@
-[submodule "cpp/third-party/dishtiny"]
-	path = cpp/third-party/dishtiny
-	url = https://github.com/mmore500/dishtiny.git
 [submodule "cpp/third-party/picobench"]
 	path = cpp/third-party/picobench
 	url = https://github.com/iboB/picobench
 [submodule "cpp/third-party/FlameGraph"]
 	path = cpp/third-party/FlameGraph
 	url = https://github.com/brendangregg/FlameGraph.git
+[submodule "cpp/third-party/Empirical_fiddle"]
+	path = cpp/third-party/Empirical_fiddle
+	url = https://github.com/devosoft/Empirical.git
+	branch = native-canvas
+[submodule "cpp/third-party/Empirical_control"]
+	path = cpp/third-party/Empirical_control
+	url = https://github.com/devosoft/Empirical.git
+	branch = native-canvas
+[submodule "cpp/third-party/Empirical_baseline"]
+	path = cpp/third-party/Empirical_baseline
+	url = https://github.com/devosoft/Empirical.git
+	branch = native-canvas
