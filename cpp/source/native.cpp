@@ -1,21 +1,20 @@
 #include <iostream>
 
-#include "Empirical/include/emp/base/vector.hpp"
+#define PICOBENCH_IMPLEMENT
+#include "../third-party/picobench/include/picobench/picobench.hpp"
 
-#include "matchbench/config/Config.hpp"
+#include "matchbench/config/thread_local_config.hpp"
 #include "matchbench/config/setup_config_native.hpp"
-#include "matchbench/example.hpp"
-
-// This is the main function for the NATIVE version of CSE 491 Matching Benchmark.
-
-matchbench::Config cfg;
+#include "matchbench/bm_task_mix.hpp"
 
 int main(int argc, char* argv[]) {
+
   // Set up a configuration panel for native application
-  setup_config_native(cfg, argc, argv);
-  cfg.Write(std::cout);
+  setup_config_native(matchbench::thread_local_config, argc, argv);
+  matchbench::thread_local_config.Write(std::cout);
 
-  std::cout << "Hello, world!" << "\n";
-
-  return matchbench::example();
+  picobench::runner runner;
+  return runner.run();
 }
+
+PICOBENCH(matchbench::bm_task_mix).samples(10000).iterations({1000});
