@@ -13,9 +13,22 @@ namespace matchbench {
 
 void bm_task_mix(picobench::state& state) {
 
-  auto depository = matchbench::setup_depository();
+  using depository_t = decltype(matchbench::setup_depository());
+  emp::vector<depository_t> depositories;
+  const auto& cfg = matchbench::thread_local_config;
 
-  for (auto __ : state) matchbench::do_task_mix(depository);
+  std::generate_n(
+    std::back_inserter(depositories),
+    cfg.NUM_DEPOSITORIES(),
+    matchbench::setup_depository
+  );
+
+  size_t depository_idx{};
+
+  for (auto __ : state) {
+    matchbench::do_task_mix(depositories[depository_idx]);
+    ++depository_idx %= depositories.size();
+  }
 
 }
 

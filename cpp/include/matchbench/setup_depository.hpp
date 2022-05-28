@@ -33,7 +33,7 @@ auto setup_depository() {
 
   using tag_t = emp::BitSet<64>;
   const auto& cfg = matchbench::thread_local_config;
-  emp::Random random(1);
+  thread_local emp::Random random(1);
 
   // fill up depository with randomly-generated tag-value pairs
   for (size_t i{}; i < cfg.TARGET_POOL_SIZE(); ++i) depository.Put(

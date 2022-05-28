@@ -23,6 +23,9 @@ namespace matchbench {
     VALUE(NUM_REGULATION_IN_TASK_MIX, size_t, 1,
       "How many regulation operations should be performed inside benchmark?"
     ),
+    VALUE(NUM_DEPOSITORIES, size_t, 64,
+      "How many different depositories should be interleaved?"
+    ),
   );
 
 } // namespace matchbench {
