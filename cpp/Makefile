@@ -31,18 +31,18 @@ debug-web: $(PROJECT).js
 
 web-debug: debug-web
 
-baseline.o: source/bm_task_mix_baseline.cpp include/
-	$(CXX) $(CFLAGS_nat) -static -DCONTROL -Ithird-party/Empirical_baseline/include -c source/bm_task_mix_baseline.cpp -DWHICH_EMPIRICAL=Empirical_baseline -o baseline.o
+benchmark_baseline.o: source/benchmark_baseline.cpp include/
+	$(CXX) $(CFLAGS_nat) -static -DCONTROL -Ithird-party/Empirical_baseline/include -c source/benchmark_baseline.cpp -DWHICH_EMPIRICAL=Empirical_baseline -o benchmark_baseline.o
 
-control.o: source/bm_task_mix_control.cpp include/
-	$(CXX) $(CFLAGS_nat) -static -DCONTROL -Ithird-party/Empirical_control/include -c source/bm_task_mix_control.cpp -DWHICH_EMPIRICAL=Empirical_control -o control.o
+benchmark_control.o: source/benchmark_control.cpp include/
+	$(CXX) $(CFLAGS_nat) -static -DCONTROL -Ithird-party/Empirical_control/include -c source/benchmark_control.cpp -DWHICH_EMPIRICAL=Empirical_control -o benchmark_control.o
 
-fiddle.o: source/bm_task_mix_fiddle.cpp include/
-	$(CXX) $(CFLAGS_nat) -static -DFIDDLE -Ithird-party/Empirical_fiddle/include -c source/bm_task_mix_fiddle.cpp -o fiddle.o
+benchmark_fiddle.o: source/benchmark_fiddle.cpp include/
+	$(CXX) $(CFLAGS_nat) -static -DFIDDLE -Ithird-party/Empirical_fiddle/include -c source/benchmark_fiddle.cpp -o benchmark_fiddle.o
 
 # see https://stackoverflow.com/a/57760267 RE: -lstdc++fs
-$(PROJECT): source/native.cpp include/ baseline.o control.o fiddle.o
-	$(CXX) baseline.o control.o fiddle.o $(CFLAGS_nat) -Ithird-party/Empirical_control/include source/native.cpp -o $(PROJECT)
+$(PROJECT): source/native.cpp include/ benchmark_baseline.o benchmark_control.o benchmark_fiddle.o
+	$(CXX) benchmark_baseline.o benchmark_control.o benchmark_fiddle.o $(CFLAGS_nat) -Ithird-party/Empirical_control/include source/native.cpp -o $(PROJECT)
 	@echo To build the web version use: make web
 
 $(PROJECT).js: source/web.cpp include/

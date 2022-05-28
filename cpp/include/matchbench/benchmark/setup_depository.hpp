@@ -4,8 +4,8 @@
 
 #include "emp/math/Random.hpp"
 
-#include "config/thread_local_config.hpp"
-#include "typedef/MatchDepository.hpp"
+#include "../config/thread_local_config.hpp"
+#include "../typedef/MatchDepository.hpp"
 
 namespace matchbench {
 

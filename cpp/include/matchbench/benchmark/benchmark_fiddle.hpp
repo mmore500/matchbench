@@ -2,11 +2,11 @@
 #ifndef MATCHBENCH_BM_TASK_MIX_FIDDLE_HPP_INCLUDE
 #define MATCHBENCH_BM_TASK_MIX_FIDDLE_HPP_INCLUDE
 
-#include "../../third-party/picobench/include/picobench/picobench.hpp"
+#include "../../../third-party/picobench/include/picobench/picobench.hpp"
 
 namespace matchbench {
 
-void bm_task_mix_fiddle(picobench::state& state);
+void benchmark_fiddle(picobench::state& state);
 
 } // namespace matchbench
 

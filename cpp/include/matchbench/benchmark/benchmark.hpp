@@ -2,14 +2,15 @@
 #ifndef MATCHBENCH_BM_TASK_MIX_HPP_INCLUDE
 #define MATCHBENCH_BM_TASK_MIX_HPP_INCLUDE
 
-#include "../../third-party/picobench/include/picobench/picobench.hpp"
+#include "../../../third-party/picobench/include/picobench/picobench.hpp"
 
-#include "do_task_mix.hpp"
+#include "../task/do_task_mix.hpp"
+
 #include "setup_depository.hpp"
 
 namespace matchbench {
 
-static void bm_task_mix(picobench::state& state) {
+static void benchmark(picobench::state& state) {
 
   using depository_t = decltype(matchbench::setup_depository());
   emp::vector<depository_t> depositories;
