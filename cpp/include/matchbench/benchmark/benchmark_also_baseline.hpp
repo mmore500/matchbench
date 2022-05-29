@@ -6,6 +6,7 @@
 
 namespace matchbench {
 
+// handle to perform benchmark on baseline source code
 void benchmark_also_baseline(ankerl::nanobench::Bench&);
 
 } // namespace matchbench

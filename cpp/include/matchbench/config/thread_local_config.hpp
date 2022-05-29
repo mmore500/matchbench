@@ -6,7 +6,9 @@
 
 namespace matchbench {
 
-  inline thread_local matchbench::Config thread_local_config{};
+// probably not interesting
+// just boilerplate to handle configuraiton options
+inline thread_local matchbench::Config thread_local_config{};
 
 } // namespace matchbench
 

@@ -6,6 +6,8 @@
 
 namespace matchbench {
 
+// handle to perform benchmark on control source code
+// (should run slower than baseline)
 void benchmark_control(ankerl::nanobench::Bench&);
 
 } // namespace matchbench

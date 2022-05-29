@@ -8,6 +8,8 @@
 
 namespace matchbench {
 
+// do a single unit of regulation work, drawing an arbitrary query tag
+// and upregulating the target tag it maches to
 template<typename Depository>
 static void do_regulate_task(
   Depository& depository,

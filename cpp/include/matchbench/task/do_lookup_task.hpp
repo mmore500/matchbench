@@ -11,6 +11,8 @@ inline volatile size_t val;
 
 namespace matchbench {
 
+// do a single unit of tag lookup work, drawing an arbitrary query tag
+// and upregulating the target tag it maches to
 template<typename Depository>
 static void do_lookup_task(
   Depository& depository,

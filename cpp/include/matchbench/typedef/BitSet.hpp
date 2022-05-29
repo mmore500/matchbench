@@ -6,6 +6,7 @@
 
 namespace matchbench {
 
+// a 64-bit wide tag is used
 using BitSet = emp::BitSet<64>;
 
 } // namespace matchbench

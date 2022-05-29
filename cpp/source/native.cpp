@@ -19,6 +19,7 @@ int main(int argc, char* argv[]) {
 
   ankerl::nanobench::Bench bench;
 
+  // setup benchmark infrastructure
   bench.title(
     "Empirical Implementations"
   ).unit(
@@ -28,19 +29,21 @@ int main(int argc, char* argv[]) {
   ).relative(
     true
   ).minEpochTime(
-    std::chrono::milliseconds{100} // nanoseconds
+    std::chrono::milliseconds{100}
   ).maxEpochTime(
-    std::chrono::milliseconds{200} // nanoseconds
+    std::chrono::milliseconds{200}
   );
   bench.performanceCounters(
     true
   );
 
+  // run benchmarks
   matchbench::benchmark_baseline(bench);
   matchbench::benchmark_control(bench);
   matchbench::benchmark_fiddle(bench);
   matchbench::benchmark_also_baseline(bench);
 
+  // print end separator
   for (size_t i{}; i < 200; ++i) std::cout << '=';
   std::cout << '\n' << '\n' << '\n';
 

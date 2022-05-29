@@ -6,6 +6,8 @@
 
 namespace matchbench {
 
+// handle to perform benchmark on "fiddle" source code for experimentation
+// (hopefully can be improved to run faster than baseline)
 void benchmark_fiddle(ankerl::nanobench::Bench&);
 
 } // namespace matchbench

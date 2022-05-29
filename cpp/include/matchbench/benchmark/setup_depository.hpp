@@ -10,6 +10,8 @@
 
 namespace matchbench {
 
+// generate a new tag depository to perform lookups in
+// populate it with random tag-value pairs
 static auto setup_depository() {
 
   matchbench::MatchDepository depository;

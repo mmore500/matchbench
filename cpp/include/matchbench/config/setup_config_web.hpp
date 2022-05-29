@@ -11,6 +11,8 @@
 
 namespace matchbench {
 
+// probably not interesting
+// just boilerplate to read in configuraiton options
 inline void setup_config_web(matchbench::Config & config)  {
   auto specs = emp::ArgManager::make_builtin_specs(&config);
   emp::ArgManager am(emp::web::GetUrlParams(), specs);

@@ -13,28 +13,33 @@
 
 namespace matchbench {
 
+// feed do_task_mix to nanobench
 static void benchmark(
   ankerl::nanobench::Bench& bench,
   const std::string& name
 ) {
 
-  emp::vector<MatchDepository> depositories;
-
+  // set up a vector of depositories for us to cycle over and operate on
+  // (meant to model the realistic scenario where we would be
+  // switching between operations on different depositories in a population)
   const auto& cfg = matchbench::thread_local_config;
-
+  emp::vector<MatchDepository> depositories;
   std::generate_n(
     std::back_inserter(depositories),
     cfg.NUM_DEPOSITORIES(),
     matchbench::setup_depository
   );
 
+  // state for benchmark
   size_t depository_idx{};
   emp::Random rand(1);
 
+  // have nanobench call and measure do_task_mix
   bench.run(
     name,
     [&](){
       matchbench::do_task_mix(depositories[depository_idx], rand);
+      // each replicate measurement is performend on the next depository
       ++depository_idx %= depositories.size();
     }
   );
