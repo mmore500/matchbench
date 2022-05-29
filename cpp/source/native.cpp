@@ -2,7 +2,7 @@
 #include <iostream>
 
 #define ANKERL_NANOBENCH_IMPLEMENT
-#include "../third-party/picobench/include/picobench/picobench.hpp"
+#include "../third-party/nanobench/src/include/nanobench.h"
 
 #include "matchbench/benchmark/benchmark_also_baseline.hpp"
 #include "matchbench/benchmark/benchmark_baseline.hpp"

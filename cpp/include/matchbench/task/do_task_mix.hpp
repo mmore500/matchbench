@@ -15,7 +15,7 @@ namespace matchbench {
 // to simulate a realistic composite of work that might occur in an
 // evolutionary simulation
 template<typename Depository>
-void do_task_mix(Depository& depository, emp::Random& rand) {
+static void do_task_mix(Depository& depository, emp::Random& rand) {
 
   const auto& cfg = matchbench::thread_local_config;
 
