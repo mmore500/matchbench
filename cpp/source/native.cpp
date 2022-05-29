@@ -22,3 +22,5 @@ int main(int argc, char* argv[]) {
 PICOBENCH(matchbench::benchmark_baseline).samples(1000).iterations({1000});
 PICOBENCH(matchbench::benchmark_control).samples(1000).iterations({1000});
 PICOBENCH(matchbench::benchmark_fiddle).samples(1000).iterations({1000});
+// add redundant baseline benchmark to account for measurement effects
+PICOBENCH(matchbench::benchmark_baseline).samples(1000).iterations({1000});
