@@ -41,7 +41,6 @@ To enable this type of lookup, empirical provides a `emp::TagDepository` data st
 This data structure facilitates look ups where a best-matching tag or tag(s) are returned in response to query tags.
 
 This `TagDepository` data structure is templated to allow for compile-time configuration, with three major components:
-"Tag Depository" data structure
 * tag comparison metric
   * How should we test how "well" two tags match?
   * example: interpret the tags as integers and take absolute difference
@@ -92,7 +91,7 @@ Some sort of auto-tuned caching system could be helpful here.
 # Organization
 
 The project is set up to compile benchmarks separately using three different Empirical library copies that can be edited fully independently:
-1. `cpp/third-party/Empirical_baseline` (current best-performing code)
+1. `cpp/third-party/Empirical_baseline`
   * current best-performing code; for comparison purposes, don't change
 2. `cpp/third-party/Empirical_control`
   * slower than baseline, to make sure benchmark is working correctly
@@ -122,6 +121,6 @@ Interesting places to look & fiddle around inside the Empirical source tree are:
 
 ## Credits
 
-This package was created with [Cookiecutter][https://github.com/audreyr/cookiecutter] and the [mmore500/cookiecutter-dishtiny-project][https://github.com/mmore500/cookiecutter-dishtiny-project] project template.
+This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [mmore500/cookiecutter-dishtiny-project](https://github.com/mmore500/cookiecutter-dishtiny-project) project template.
 
 This package uses [Empirical](https://github.com/devosoft/Empirical#readme), a library of tools for scientific software development, with emphasis on also being able to build web interfaces using Emscripten.
