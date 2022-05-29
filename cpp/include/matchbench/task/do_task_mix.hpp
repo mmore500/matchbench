@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MATCHBENCH_DO_TASK_MIX_HPP_INCLUDE
-#define MATCHBENCH_DO_TASK_MIX_HPP_INCLUDE
+#ifndef MATCHBENCH_TASK_DO_TASK_MIX_HPP_INCLUDE
+#define MATCHBENCH_TASK_DO_TASK_MIX_HPP_INCLUDE
 
 #include "../config/thread_local_config.hpp"
 
@@ -26,4 +26,4 @@ void do_task_mix(Depository& depository) {
 
 } // namespace matchbench
 
-#endif // #ifndef MATCHBENCH_DO_TASK_MIX_HPP_INCLUDE
+#endif // #ifndef MATCHBENCH_TASK_DO_TASK_MIX_HPP_INCLUDE

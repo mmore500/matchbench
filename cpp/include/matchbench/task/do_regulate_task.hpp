@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MATCHBENCH_DO_REGULATE_TASK_HPP_INCLUDE
-#define MATCHBENCH_DO_REGULATE_TASK_HPP_INCLUDE
+#ifndef MATCHBENCH_TASK_DO_REGULATE_TASK_HPP_INCLUDE
+#define MATCHBENCH_TASK_DO_REGULATE_TASK_HPP_INCLUDE
 
 #include "sample_query_tag.hpp"
 
@@ -22,4 +22,4 @@ static void do_regulate_task(Depository& depository) {
 
 } // namespace matchbench
 
-#endif // #ifndef MATCHBENCH_DO_REGULATE_TASK_HPP_INCLUDE
+#endif // #ifndef MATCHBENCH_TASK_DO_REGULATE_TASK_HPP_INCLUDE

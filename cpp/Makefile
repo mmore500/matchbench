@@ -32,10 +32,10 @@ debug-web: $(PROJECT).js
 web-debug: debug-web
 
 benchmark_baseline.o: source/benchmark_baseline.cpp include/
-	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_baseline/include -c source/benchmark_baseline.cpp -DWHICH_EMPIRICAL=Empirical_baseline -o benchmark_baseline.o
+	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_baseline/include -c source/benchmark_baseline.cpp -o benchmark_baseline.o
 
 benchmark_control.o: source/benchmark_control.cpp include/
-	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_control/include -c source/benchmark_control.cpp -DWHICH_EMPIRICAL=Empirical_control -o benchmark_control.o
+	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_control/include -c source/benchmark_control.cpp -o benchmark_control.o
 
 benchmark_fiddle.o: source/benchmark_fiddle.cpp include/
 	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_fiddle/include -c source/benchmark_fiddle.cpp -o benchmark_fiddle.o

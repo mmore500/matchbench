@@ -2,7 +2,7 @@
 
 #include "../third-party/picobench/include/picobench/picobench.hpp"
 
-#include "matchbench/benchmark/benchmark_control.hpp"
+#include "matchbench/benchmark/benchmark_baseline.hpp"
 #include "matchbench/benchmark/benchmark.hpp"
 
 namespace matchbench {
