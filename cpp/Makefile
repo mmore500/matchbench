@@ -8,6 +8,7 @@ CFLAGS_all := -Wall -Wno-unused-function -std=c++17 -Ithird-party/ -Iinclude/
 CXX ?= g++
 CFLAGS_nat := -O3 -DNDEBUG -msse4.2 $(CFLAGS_all)
 CFLAGS_nat_debug := -g $(CFLAGS_all)
+CFLAGS_nat_production := -g $(CFLAGS_nat)
 
 # Emscripten compiler information
 CXX_web := emcc
