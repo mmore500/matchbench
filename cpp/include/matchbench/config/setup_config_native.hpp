@@ -2,7 +2,7 @@
 #ifndef MATCHBENCH_CONFIG_SETUP_CONFIG_NATIVE_HPP_INCLUDE
 #define MATCHBENCH_CONFIG_SETUP_CONFIG_NATIVE_HPP_INCLUDE
 
-#include "emp/config/ArgManager.hpp"
+#include <emp/config/ArgManager.hpp>
 
 #include "try_read_config_file.hpp"
 

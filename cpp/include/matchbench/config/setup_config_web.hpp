@@ -2,9 +2,9 @@
 #ifndef MATCHBENCH_CONFIG_SETUP_CONFIG_WEB_HPP_INCLUDE
 #define MATCHBENCH_CONFIG_SETUP_CONFIG_WEB_HPP_INCLUDE
 
-#include "emp/config/ArgManager.hpp"
-#include "emp/web/UrlParams.hpp"
-#include "emp/web/web.hpp"
+#include <emp/config/ArgManager.hpp>
+#include <emp/web/UrlParams.hpp>
+#include <emp/web/web.hpp>
 
 #include "Config.hpp"
 #include "try_read_config_file.hpp"

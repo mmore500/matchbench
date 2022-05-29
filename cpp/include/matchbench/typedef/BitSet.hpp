@@ -2,7 +2,7 @@
 #ifndef MATCHBENCH_TYPEDEF_BITSET_HPP_INCLUDE
 #define MATCHBENCH_TYPEDEF_BITSET_HPP_INCLUDE
 
-#include "emp/bits/BitSet.hpp"
+#include <emp/bits/BitSet.hpp>
 
 namespace matchbench {
 

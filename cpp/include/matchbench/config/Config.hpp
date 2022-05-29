@@ -2,7 +2,7 @@
 #ifndef MATCHBENCH_CONFIG_CONFIG_HPP_INCLUDE
 #define MATCHBENCH_CONFIG_CONFIG_HPP_INCLUDE
 
-#include "emp/config/config.hpp"
+#include <emp/config/config.hpp>
 
 namespace matchbench {
 

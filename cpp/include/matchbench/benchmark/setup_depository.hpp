@@ -2,7 +2,7 @@
 #ifndef MATCHBENCH_BENCHMARK_SETUP_DEPOSITORY_HPP_INCLUDE
 #define MATCHBENCH_BENCHMARK_SETUP_DEPOSITORY_HPP_INCLUDE
 
-#include "emp/math/Random.hpp"
+#include <emp/math/Random.hpp>
 
 #include "../config/thread_local_config.hpp"
 #include "../typedef/BitSet.hpp"

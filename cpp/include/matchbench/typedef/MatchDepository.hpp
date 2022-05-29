@@ -2,10 +2,10 @@
 #ifndef MATCHBENCH_TYPEDEF_MATCHDEPOSITORY_HPP_INCLUDE
 #define MATCHBENCH_TYPEDEF_MATCHDEPOSITORY_HPP_INCLUDE
 
-#include "emp/matching/MatchDepository.hpp"
-#include "emp/matching/matchbin_metrics.hpp"
-#include "emp/matching/selectors_static/RankedSelector.hpp"
-#include "emp/matching/regulators/PlusCountdownRegulator.hpp"
+#include <emp/matching/MatchDepository.hpp>
+#include <emp/matching/matchbin_metrics.hpp>
+#include <emp/matching/selectors_static/RankedSelector.hpp>
+#include <emp/matching/regulators/PlusCountdownRegulator.hpp>
 
 namespace matchbench {
 
