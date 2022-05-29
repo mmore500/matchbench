@@ -19,7 +19,7 @@ static auto sample_query_tag() {
   const uint64_t cur_tag_bits = matchbench::scramble(cur_tag_idx);
 
 
-  return /*matchbench::*/BitSet(cur_tag_bits);
+  return matchbench::BitSet(cur_tag_bits);
 
 }
 

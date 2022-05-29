@@ -1,3 +1,5 @@
+#define emp emp_control
+
 #include "../third-party/picobench/include/picobench/picobench.hpp"
 
 #include "matchbench/benchmark/benchmark_control.hpp"

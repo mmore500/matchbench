@@ -1,3 +1,5 @@
+#define emp emp_fiddle
+
 #include "../third-party/picobench/include/picobench/picobench.hpp"
 
 #include "matchbench/benchmark/benchmark_fiddle.hpp"

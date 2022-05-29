@@ -5,6 +5,7 @@
 #include "../../../third-party/picobench/include/picobench/picobench.hpp"
 
 #include "../task/do_task_mix.hpp"
+#include "../typedef/MatchDepository.hpp"
 
 #include "setup_depository.hpp"
 
@@ -12,8 +13,8 @@ namespace matchbench {
 
 static void benchmark(picobench::state& state) {
 
-  using depository_t = decltype(matchbench::setup_depository());
-  emp::vector<depository_t> depositories;
+  emp::vector<MatchDepository> depositories;
+
   const auto& cfg = matchbench::thread_local_config;
 
   std::generate_n(
