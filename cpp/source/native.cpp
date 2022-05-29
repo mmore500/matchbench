@@ -4,6 +4,7 @@
 #define ANKERL_NANOBENCH_IMPLEMENT
 #include "../third-party/picobench/include/picobench/picobench.hpp"
 
+#include "matchbench/benchmark/benchmark_also_baseline.hpp"
 #include "matchbench/benchmark/benchmark_baseline.hpp"
 #include "matchbench/benchmark/benchmark_control.hpp"
 #include "matchbench/benchmark/benchmark_fiddle.hpp"
@@ -38,6 +39,7 @@ int main(int argc, char* argv[]) {
   matchbench::benchmark_baseline(bench);
   matchbench::benchmark_control(bench);
   matchbench::benchmark_fiddle(bench);
+  matchbench::benchmark_also_baseline(bench);
 
   for (size_t i{}; i < 200; ++i) std::cout << '=';
   std::cout << '\n' << '\n' << '\n';

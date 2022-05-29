@@ -26,10 +26,16 @@ all: $(PROJECT) $(PROJECT).js
 debug: CFLAGS_nat := $(CFLAGS_nat_debug)
 debug: $(PROJECT)
 
+production: CFLAGS_nat := $(CFLAGS_nat_production)
+production: $(PROJECT)
+
 debug-web: CFLAGS_web := $(CFLAGS_web_debug)
 debug-web: $(PROJECT).js
 
 web-debug: debug-web
+
+benchmark_also_baseline.o: source/benchmark_also_baseline.cpp include/
+	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_baseline/include -c source/benchmark_also_baseline.cpp -o benchmark_also_baseline.o
 
 benchmark_baseline.o: source/benchmark_baseline.cpp include/
 	$(CXX) $(CFLAGS_nat) -Ithird-party/Empirical_baseline/include -c source/benchmark_baseline.cpp -o benchmark_baseline.o
@@ -46,8 +52,8 @@ benchmark_fiddle.o: source/benchmark_fiddle.cpp include/
 # due to order-dependent effects on which code sections get discarded
 # when linking
 # see https://stackoverflow.com/a/44346057/17332200
-$(PROJECT): source/native.cpp include/ benchmark_baseline.o benchmark_control.o benchmark_fiddle.o
-	$(CXX) benchmark_control.o benchmark_baseline.o benchmark_fiddle.o $(CFLAGS_nat) -Ithird-party/Empirical_control/include source/native.cpp -o $(PROJECT)
+$(PROJECT): source/native.cpp include/ benchmark_also_baseline.o benchmark_baseline.o benchmark_control.o benchmark_fiddle.o
+	$(CXX) benchmark_control.o benchmark_baseline.o benchmark_fiddle.o benchmark_also_baseline.o $(CFLAGS_nat) -Ithird-party/Empirical_control/include source/native.cpp -o $(PROJECT)
 	@echo To build the web version use: make web
 
 $(PROJECT).js: source/web.cpp include/
