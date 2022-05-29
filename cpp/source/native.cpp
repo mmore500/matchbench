@@ -1,6 +1,7 @@
+#include <chrono>
 #include <iostream>
 
-#define PICOBENCH_IMPLEMENT
+#define ANKERL_NANOBENCH_IMPLEMENT
 #include "../third-party/picobench/include/picobench/picobench.hpp"
 
 #include "matchbench/benchmark/benchmark_baseline.hpp"
@@ -15,12 +16,31 @@ int main(int argc, char* argv[]) {
   setup_config_native(matchbench::thread_local_config, argc, argv);
   matchbench::thread_local_config.Write(std::cout);
 
-  picobench::runner runner;
-  return runner.run();
-}
+  ankerl::nanobench::Bench bench;
 
-PICOBENCH(matchbench::benchmark_baseline).samples(1000).iterations({1000});
-PICOBENCH(matchbench::benchmark_control).samples(1000).iterations({1000});
-PICOBENCH(matchbench::benchmark_fiddle).samples(1000).iterations({1000});
-// add redundant baseline benchmark to account for measurement effects
-PICOBENCH(matchbench::benchmark_baseline).samples(1000).iterations({1000});
+  bench.title(
+    "Empirical Implementations"
+  ).unit(
+    "task composite"
+  ).warmup(
+    100
+  ).relative(
+    true
+  ).minEpochTime(
+    std::chrono::milliseconds{100} // nanoseconds
+  ).maxEpochTime(
+    std::chrono::milliseconds{200} // nanoseconds
+  );
+  bench.performanceCounters(
+    true
+  );
+
+  matchbench::benchmark_baseline(bench);
+  matchbench::benchmark_control(bench);
+  matchbench::benchmark_fiddle(bench);
+
+  for (size_t i{}; i < 200; ++i) std::cout << '=';
+  std::cout << '\n' << '\n' << '\n';
+
+  return 0;
+}

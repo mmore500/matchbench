@@ -2,11 +2,11 @@
 #ifndef MATCHBENCH_BENCHMARK_BENCHMARK_FIDDLE_HPP_INCLUDE
 #define MATCHBENCH_BENCHMARK_BENCHMARK_FIDDLE_HPP_INCLUDE
 
-#include "../../../third-party/picobench/include/picobench/picobench.hpp"
+#include "../../../third-party/nanobench/src/include/nanobench.h"
 
 namespace matchbench {
 
-void benchmark_fiddle(picobench::state& state);
+void benchmark_fiddle(ankerl::nanobench::Bench&);
 
 } // namespace matchbench
 

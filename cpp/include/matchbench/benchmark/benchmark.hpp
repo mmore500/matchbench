@@ -2,7 +2,9 @@
 #ifndef MATCHBENCH_BENCHMARK_BENCHMARK_HPP_INCLUDE
 #define MATCHBENCH_BENCHMARK_BENCHMARK_HPP_INCLUDE
 
-#include "../../../third-party/picobench/include/picobench/picobench.hpp"
+#include <emp/math/Random.hpp>
+
+#include "../../../third-party/nanobench/src/include/nanobench.h"
 
 #include "../task/do_task_mix.hpp"
 #include "../typedef/MatchDepository.hpp"
@@ -11,7 +13,10 @@
 
 namespace matchbench {
 
-static void benchmark(picobench::state& state) {
+static void benchmark(
+  ankerl::nanobench::Bench& bench,
+  const std::string& name
+) {
 
   emp::vector<MatchDepository> depositories;
 
@@ -24,11 +29,15 @@ static void benchmark(picobench::state& state) {
   );
 
   size_t depository_idx{};
+  emp::Random rand(1);
 
-  for (auto __ : state) {
-    matchbench::do_task_mix(depositories[depository_idx]);
-    ++depository_idx %= depositories.size();
-  }
+  bench.run(
+    name,
+    [&](){
+      matchbench::do_task_mix(depositories[depository_idx], rand);
+      ++depository_idx %= depositories.size();
+    }
+  );
 
 }
 

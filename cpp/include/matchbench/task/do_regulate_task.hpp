@@ -2,14 +2,19 @@
 #ifndef MATCHBENCH_TASK_DO_REGULATE_TASK_HPP_INCLUDE
 #define MATCHBENCH_TASK_DO_REGULATE_TASK_HPP_INCLUDE
 
+#include <emp/math/Random.hpp>
+
 #include "sample_query_tag.hpp"
 
 namespace matchbench {
 
 template<typename Depository>
-static void do_regulate_task(Depository& depository) {
+static void do_regulate_task(
+  Depository& depository,
+  emp::Random& rand
+) {
 
-  const auto query = matchbench::sample_query_tag();
+  const auto query = matchbench::sample_query_tag(rand);
 
   for ( const auto uid : depository.MatchRaw(query) ) {
     depository.AdjRegulator(

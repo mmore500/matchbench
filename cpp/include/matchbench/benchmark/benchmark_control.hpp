@@ -2,11 +2,11 @@
 #ifndef MATCHBENCH_BENCHMARK_BENCHMARK_CONTROL_HPP_INCLUDE
 #define MATCHBENCH_BENCHMARK_BENCHMARK_CONTROL_HPP_INCLUDE
 
-#include "../../../third-party/picobench/include/picobench/picobench.hpp"
+#include "../../../third-party/nanobench/src/include/nanobench.h"
 
 namespace matchbench {
 
-void benchmark_control(picobench::state& state);
+void benchmark_control(ankerl::nanobench::Bench&);
 
 } // namespace matchbench
 

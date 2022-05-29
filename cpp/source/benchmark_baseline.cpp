@@ -1,14 +1,14 @@
 #define emp emp_baseline
 
-#include "../third-party/picobench/include/picobench/picobench.hpp"
+#include "../third-party/nanobench/src/include/nanobench.h"
 
 #include "matchbench/benchmark/benchmark_baseline.hpp"
 #include "matchbench/benchmark/benchmark.hpp"
 
 namespace matchbench {
 
-void benchmark_baseline(picobench::state& state) {
-  matchbench::benchmark(state);
+void benchmark_baseline(ankerl::nanobench::Bench& bench) {
+  matchbench::benchmark(bench, "baseline");
 }
 
 } //namespace matchbench

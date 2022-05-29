@@ -1,14 +1,14 @@
 #define emp emp_control
 
-#include "../third-party/picobench/include/picobench/picobench.hpp"
+#include "../third-party/nanobench/src/include/nanobench.h"
 
 #include "matchbench/benchmark/benchmark_control.hpp"
 #include "matchbench/benchmark/benchmark.hpp"
 
 namespace matchbench {
 
-void benchmark_control(picobench::state& state) {
-  matchbench::benchmark(state);
+void benchmark_control(ankerl::nanobench::Bench& bench) {
+  matchbench::benchmark(bench, "control");
 }
 
 } //namespace matchbench
