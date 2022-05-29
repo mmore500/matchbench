@@ -14,7 +14,7 @@ namespace matchbench {
 // populate it with random tag-value pairs
 static auto setup_depository() {
 
-  matchbench::MatchDepository depository;
+  MatchDepository depository;
 
   const auto& cfg = matchbench::thread_local_config;
   thread_local emp::Random random(1);

@@ -1,5 +1,6 @@
 // redefine emp namespace to prevent ODR violations
 #define emp emp_baseline
+#define baseline
 
 #include "../third-party/nanobench/src/include/nanobench.h"
 

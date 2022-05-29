@@ -1,5 +1,6 @@
 // redefine emp namespace to prevent ODR violations
 #define emp emp_fiddle
+#define fiddle
 
 #include "../third-party/nanobench/src/include/nanobench.h"
 
