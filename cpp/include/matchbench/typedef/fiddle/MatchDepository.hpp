@@ -36,7 +36,7 @@ using MatchDepository = emp::MatchDepository<
   // to make them more or less likely to match to a query)
   emp::PlusCountdownRegulator<
     std::deci, // Slope
-    std::ratio<1,4>, // MaxUpreg
+    std::ratio<0>, // MaxUpreg
     std::deci, // ClampLeeway
     2 // (for intermittently resetting regulation, not used here)
   >,
@@ -55,7 +55,7 @@ using MatchDepository = emp::MatchDepository<
   // a fifo cache is used
   // (regulated tag lookup cache is frequently invalidated by
   // subsequent regulation adjustments)
-  0 // regulated lookup cache size, disabled
+  1 // regulated lookup cache, enabled
 >;
 
 }
