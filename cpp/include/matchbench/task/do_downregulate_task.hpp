@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MATCHBENCH_TASK_DO_REGULATE_TASK_HPP_INCLUDE
-#define MATCHBENCH_TASK_DO_REGULATE_TASK_HPP_INCLUDE
+#ifndef MATCHBENCH_TASK_DO_DOWNREGULATE_TASK_HPP_INCLUDE
+#define MATCHBENCH_TASK_DO_DOWNREGULATE_TASK_HPP_INCLUDE
 
 #include <emp/math/Random.hpp>
 
@@ -11,7 +11,7 @@ namespace matchbench {
 // do a single unit of regulation work, drawing an arbitrary query tag
 // and upregulating the target tag it maches to
 template<typename Depository>
-static void do_regulate_task(
+static void do_downregulate_task(
   Depository& depository,
   emp::Random& rand
 ) {
@@ -21,7 +21,7 @@ static void do_regulate_task(
   for ( const auto uid : depository.MatchRaw(query) ) {
     depository.AdjRegulator(
       uid, // which tag to upregulate
-      1 // arbitrary downregulation amount
+      0.2 // arbitrary downregulation amount
     );
   }
 
@@ -29,4 +29,4 @@ static void do_regulate_task(
 
 } // namespace matchbench
 
-#endif // #ifndef MATCHBENCH_TASK_DO_REGULATE_TASK_HPP_INCLUDE
+#endif // #ifndef MATCHBENCH_TASK_DO_DOWNREGULATE_TASK_HPP_INCLUDE

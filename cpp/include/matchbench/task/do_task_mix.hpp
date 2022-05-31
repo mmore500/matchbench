@@ -6,8 +6,9 @@
 
 #include "../config/thread_local_config.hpp"
 
+#include "do_downregulate_task.hpp"
 #include "do_lookup_task.hpp"
-#include "do_regulate_task.hpp"
+#include "do_upregulate_task.hpp"
 
 namespace matchbench {
 
@@ -21,7 +22,8 @@ static void do_task_mix(Depository& depository, emp::Random& rand) {
 
   // do some regulation work
   for (size_t i{}; i < cfg.NUM_REGULATION_IN_TASK_MIX(); ++i) {
-    matchbench::do_regulate_task(depository, rand);
+    matchbench::do_downregulate_task(depository, rand);
+    matchbench::do_upregulate_task(depository, rand);
   }
 
   // do some tag lookup work
